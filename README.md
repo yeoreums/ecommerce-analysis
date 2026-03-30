@@ -4,23 +4,24 @@ Session-based analysis of user behavior to identify conversion bottlenecks and e
 
 ## Problem
 
-Users interact with products, but only a small fraction convert to purchase.
-This project analyzes where users drop off in the funnel and what behaviors are associated with conversion.
+Users interact with products frequently, but only a small fraction convert to purchase. This raises the question of where and why users drop off.
 
 ## Dataset
 
 * Source: Kaggle (Multi-category eCommerce behavior dataset)
 * Sample: 1,000,000 events (Oct 2019)
-* Type: Clickstream (view, cart, purchase)
+* Type: Clickstream data (view, cart, purchase)
 
 ## Approach
 
 * Aggregated event-level data into session-level
 * Defined funnel: View → Cart → Purchase
+* Refined funnel logic to ensure sequential behavior (cart → purchase)
+* Validated funnel metrics to ensure logical consistency (Purchase ≤ Cart)
 * Created features:
 
   * has_cart, has_purchase
-  * num_events (engagement)
+  * num_events (engagement level)
 
 ## Key Findings
 
@@ -28,30 +29,36 @@ This project analyzes where users drop off in the funnel and what behaviors are 
   → Most users drop off before taking action
 
 * Cart → Purchase: ~56%
-  → Users who add to cart are likely to buy
+  → Users who add to cart are likely to complete purchase
 
 * Engagement:
 
   * Purchase sessions: ~7 events
   * Non-purchase sessions: ~4 events
-    → Higher engagement is associated with conversion
+    → Higher engagement is strongly associated with conversion
 
 ## Insight
 
-The main bottleneck is at the product interaction stage (view → cart), not checkout.
-Improving early-stage engagement (e.g., product interaction and add-to-cart behavior) is likely to have the biggest impact on conversion.
+The primary bottleneck is at the early stage (view → cart), not at checkout. Improving product interaction and encouraging add-to-cart behavior is likely to have the greatest impact on overall conversion.
+
+## Dashboard
+
+Tableau Public dashboard:
+[https://public.tableau.com/views/Book1_17748750433270/Dashboard1](https://public.tableau.com/views/Book1_17748750433270/Dashboard1)
 
 ## Tech Stack
 
 * Python (pandas)
 * Jupyter Notebook
-* Tableau (planned)
+* Tableau (dashboard visualization)
 
-## Structure
+## Project Structure
 
 ```
 ecommerce-analysis/
 ├── data/
+│   ├── raw/
+│   └── processed/
 ├── notebooks/
 │   └── analysis.ipynb
 └── README.md
