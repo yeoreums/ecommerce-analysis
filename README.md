@@ -44,7 +44,7 @@ The primary bottleneck is at the early stage (view → cart), not at checkout. I
 ## Dashboard
 
 Tableau Public dashboard:
-[https://public.tableau.com/views/Book1_17748750433270/Dashboard1](https://public.tableau.com/views/Book1_17748750433270/Dashboard1)
+[https://public.tableau.com/views/Book1_17748750433270/Dashboard1]([https://public.tableau.com/views/Book1_17748750433270/Dashboard1](https://public.tableau.com/views/ecommerce-conversion-analysis/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link))
 
 ## SQL Analysis
 
